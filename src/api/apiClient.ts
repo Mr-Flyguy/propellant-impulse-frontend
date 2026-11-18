@@ -3,11 +3,13 @@ import { Api } from './generated/PropellantApi';
 
 // Base Axios instance configuration
 axios.defaults.withCredentials = true;
+axios.defaults.timeout = 2500; // 2.5s timeout prevents hanging when backend is offline
 
 // Instance of generated API client with Axios
 export const propellantApi = new Api({
   baseURL: '', // Relative URL enables Vite reverse proxy (/api -> :3000, /propellants -> :9000)
   withCredentials: true,
+  timeout: 2500,
 });
 
 // Helper for proxy image URL resolution (Silo / MinIO)

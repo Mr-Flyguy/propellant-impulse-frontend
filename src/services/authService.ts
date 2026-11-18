@@ -25,7 +25,7 @@ export const authService = {
     const response = await axios.post<LoginResponse>(
       '/api/auth/login',
       { username, password },
-      { withCredentials: true }
+      { withCredentials: true, timeout: 2500 }
     );
     return response.data;
   },
@@ -34,7 +34,7 @@ export const authService = {
     const response = await axios.post<RegisterResponse>(
       '/api/auth/register',
       { username, email, password },
-      { withCredentials: true }
+      { withCredentials: true, timeout: 2500 }
     );
     return response.data;
   },
@@ -43,14 +43,14 @@ export const authService = {
     await axios.post(
       '/api/auth/logout',
       {},
-      { withCredentials: true }
+      { withCredentials: true, timeout: 2500 }
     );
   },
 
   async getMe(): Promise<UserInfo> {
     const response = await axios.get<UserInfo>(
       '/api/auth/me',
-      { withCredentials: true }
+      { withCredentials: true, timeout: 2500 }
     );
     return response.data;
   },
