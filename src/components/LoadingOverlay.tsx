@@ -37,7 +37,7 @@ export const LoadingOverlay: React.FC<LoadingOverlayProps> = ({
         style={{
           width: '3.5rem',
           height: '3.5rem',
-          color: '#f07d24',
+          color: 'var(--accent-red)',
           borderWidth: '0.35rem',
           marginBottom: '1rem',
         }}

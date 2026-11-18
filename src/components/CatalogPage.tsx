@@ -50,9 +50,9 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
             margin: '0 16px 12px 16px',
             padding: '8px 12px',
             borderRadius: '8px',
-            background: 'rgba(234, 88, 12, 0.15)',
-            border: '1px solid #ea580c',
-            color: '#fdba74',
+            background: 'rgba(54, 69, 150, 0.25)',
+            border: '1px solid rgba(0, 210, 255, 0.35)',
+            color: '#00d2ff',
             fontSize: '0.8rem',
             display: 'flex',
             alignItems: 'center',
@@ -234,7 +234,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
                       <span className="card-likes-count">
                         <span
                           className="card-heart-icon"
-                          style={{ color: propellant.is_liked === 1 ? '#f07d24' : undefined }}
+                          style={{ color: propellant.is_liked === 1 ? 'var(--accent-red)' : undefined }}
                         >
                           &hearts;
                         </span>{' '}

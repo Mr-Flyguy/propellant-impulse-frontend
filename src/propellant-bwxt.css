@@ -1290,6 +1290,14 @@ body {
 
   transition: opacity 0.15s ease, transform 0.15s ease;
 
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  line-height: 1;
+
 }
 
 

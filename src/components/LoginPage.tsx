@@ -67,7 +67,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
             padding: '24px',
             background: 'rgba(30, 41, 59, 0.75)',
             borderRadius: '12px',
-            border: '1px solid rgba(240, 125, 36, 0.3)',
+            border: '1px solid rgba(201, 49, 70, 0.3)',
             boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
           }}
         >
@@ -77,7 +77,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                 width: '56px',
                 height: '56px',
                 borderRadius: '50%',
-                background: 'linear-gradient(135deg, #f07d24, #ea580c)',
+                background: 'linear-gradient(135deg, #c93146, #364596)',
                 color: '#ffffff',
                 display: 'flex',
                 alignItems: 'center',
@@ -96,8 +96,8 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                   marginTop: '4px',
                   padding: '2px 8px',
                   borderRadius: '4px',
-                  background: 'rgba(240, 125, 36, 0.2)',
-                  color: '#f07d24',
+                  background: 'rgba(201, 49, 70, 0.2)',
+                  color: 'var(--accent-red)',
                   fontSize: '0.75rem',
                   fontWeight: 600,
                   textTransform: 'uppercase',

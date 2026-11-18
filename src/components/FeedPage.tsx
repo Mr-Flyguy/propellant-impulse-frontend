@@ -123,8 +123,8 @@ export const FeedPage: React.FC<FeedPageProps> = ({
             style={{
               cursor: 'pointer',
               border: 'none',
-              background: isLiked ? 'rgba(240, 125, 36, 0.3)' : 'rgba(15, 23, 42, 0.65)',
-              transform: isLiked ? 'scale(1.1)' : 'scale(1)',
+              background: isLiked ? 'rgba(201, 49, 70, 0.35)' : 'rgba(21, 24, 55, 0.88)',
+              transform: isLiked ? 'scale(1.08)' : 'scale(1)',
               transition: 'all 0.2s ease',
             }}
             title={
@@ -138,14 +138,18 @@ export const FeedPage: React.FC<FeedPageProps> = ({
             <svg
               className="action-atom-svg"
               viewBox="0 0 24 24"
-              fill={isLiked ? '#f07d24' : 'none'}
-              stroke={isLiked ? '#f07d24' : 'currentColor'}
-              strokeWidth="2"
+              fill="none"
+              stroke={isLiked ? 'var(--accent-red)' : '#ffffff'}
+              strokeWidth="1.8"
             >
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              <circle cx="12" cy="12" r="2.5" fill={isLiked ? 'var(--accent-red)' : 'none'} />
+              <circle cx="7.5" cy="7.5" r="3" />
+              <circle cx="16.5" cy="7.5" r="3" />
+              <circle cx="16.5" cy="16.5" r="3" />
+              <circle cx="7.5" cy="16.5" r="3" />
             </svg>
           </button>
-          <span className="action-like-counter" style={{ color: isLiked ? '#f07d24' : '#ffffff' }}>
+          <span className="action-like-counter" style={{ color: isLiked ? 'var(--accent-red)' : '#ffffff' }}>
             {propellant.likes_count ?? 0}
           </span>
         </div>

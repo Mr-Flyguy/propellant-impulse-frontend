@@ -154,7 +154,7 @@ export const AddPropellantPage: React.FC<AddPropellantPageProps> = ({
             flex: 1,
             height: '4px',
             borderRadius: '2px',
-            background: '#f07d24',
+            background: 'linear-gradient(90deg, #c93146 0%, #364596 100%)',
           }}
         />
         <div
@@ -162,7 +162,7 @@ export const AddPropellantPage: React.FC<AddPropellantPageProps> = ({
             flex: 1,
             height: '4px',
             borderRadius: '2px',
-            background: step === 2 ? '#f07d24' : 'rgba(255, 255, 255, 0.2)',
+            background: step === 2 ? 'linear-gradient(90deg, #c93146 0%, #364596 100%)' : 'rgba(255, 255, 255, 0.2)',
           }}
         />
       </div>
@@ -238,7 +238,18 @@ export const AddPropellantPage: React.FC<AddPropellantPageProps> = ({
             type="submit"
             disabled={isLoading}
             className="btn-filter-submit-block"
-            style={{ width: '100%', padding: '12px', fontSize: '0.95rem' }}
+            style={{
+              width: '100%',
+              height: '42px',
+              padding: '0 16px',
+              fontSize: '0.95rem',
+              fontWeight: 700,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxSizing: 'border-box',
+              lineHeight: 1,
+            }}
           >
             {isLoading ? 'Сохранение черновика...' : 'Сформировать черновик →'}
           </button>
@@ -250,60 +261,64 @@ export const AddPropellantPage: React.FC<AddPropellantPageProps> = ({
               padding: '12px 16px',
               background: 'rgba(30, 41, 59, 0.6)',
               borderRadius: '8px',
-              border: '1px solid rgba(240, 125, 36, 0.3)',
+              border: '1px solid rgba(201, 49, 70, 0.4)',
               marginBottom: '16px',
             }}
           >
-            <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase' }}>Активный черновик:</div>
-            <div style={{ fontSize: '1.1rem', fontWeight: 600, color: '#f07d24' }}>{draftItem?.name}</div>
+            <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              Активный черновик:
+            </div>
+            <div style={{ fontSize: '1.1rem', fontWeight: 600, color: '#ffffff', marginTop: '2px' }}>
+              {draftItem?.name}
+            </div>
           </div>
 
-          <div style={{ display: 'flex', gap: '12px', marginBottom: '16px' }}>
-            <div style={{ flex: 1 }}>
-              <label style={{ display: 'block', fontSize: '0.82rem', color: '#cbd5e1', marginBottom: '6px' }}>
-                Молярная масса (г/моль)
-              </label>
-              <input
-                type="number"
-                step="0.001"
-                required
-                value={molarMass}
-                onChange={(e) => setMolarMass(e.target.value)}
-                disabled={isLoading}
-                style={{
-                  width: '100%',
-                  padding: '10px 12px',
-                  borderRadius: '8px',
-                  background: 'rgba(15, 23, 42, 0.7)',
-                  border: '1px solid rgba(255, 255, 255, 0.15)',
-                  color: '#ffffff',
-                  fontSize: '0.9rem',
-                }}
-              />
-            </div>
+          <div style={{ marginBottom: '16px' }}>
+            <label style={{ display: 'block', fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '6px' }}>
+              Молярная масса (г/моль)
+            </label>
+            <input
+              type="number"
+              step="0.001"
+              required
+              value={molarMass}
+              onChange={(e) => setMolarMass(e.target.value)}
+              disabled={isLoading}
+              style={{
+                width: '100%',
+                padding: '10px 14px',
+                borderRadius: '8px',
+                background: 'rgba(15, 23, 42, 0.7)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                color: '#ffffff',
+                fontSize: '0.9rem',
+                boxSizing: 'border-box',
+              }}
+            />
+          </div>
 
-            <div style={{ flex: 1 }}>
-              <label style={{ display: 'block', fontSize: '0.82rem', color: '#cbd5e1', marginBottom: '6px' }}>
-                Показатель адиабаты (&gamma;)
-              </label>
-              <input
-                type="number"
-                step="0.01"
-                required
-                value={specificHeatRatio}
-                onChange={(e) => setSpecificHeatRatio(e.target.value)}
-                disabled={isLoading}
-                style={{
-                  width: '100%',
-                  padding: '10px 12px',
-                  borderRadius: '8px',
-                  background: 'rgba(15, 23, 42, 0.7)',
-                  border: '1px solid rgba(255, 255, 255, 0.15)',
-                  color: '#ffffff',
-                  fontSize: '0.9rem',
-                }}
-              />
-            </div>
+          <div style={{ marginBottom: '16px' }}>
+            <label style={{ display: 'block', fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '6px' }}>
+              Показатель адиабаты (&gamma;)
+            </label>
+            <input
+              type="number"
+              step="0.01"
+              required
+              value={specificHeatRatio}
+              onChange={(e) => setSpecificHeatRatio(e.target.value)}
+              disabled={isLoading}
+              style={{
+                width: '100%',
+                padding: '10px 14px',
+                borderRadius: '8px',
+                background: 'rgba(15, 23, 42, 0.7)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                color: '#ffffff',
+                fontSize: '0.9rem',
+                boxSizing: 'border-box',
+              }}
+            />
           </div>
 
           <div style={{ marginBottom: '24px' }}>
@@ -318,29 +333,38 @@ export const AddPropellantPage: React.FC<AddPropellantPageProps> = ({
               disabled={isLoading}
               style={{
                 width: '100%',
-                padding: '10px 12px',
+                padding: '10px 14px',
                 borderRadius: '8px',
                 background: 'rgba(15, 23, 42, 0.7)',
                 border: '1px solid rgba(255, 255, 255, 0.15)',
                 color: '#ffffff',
                 fontSize: '0.85rem',
                 resize: 'vertical',
+                boxSizing: 'border-box',
               }}
             />
           </div>
 
-          <div style={{ display: 'flex', gap: '10px' }}>
+          <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
             <button
               type="button"
               disabled={isLoading}
               onClick={() => setStep(1)}
               style={{
-                padding: '10px 16px',
+                height: '42px',
+                padding: '0 20px',
                 borderRadius: '8px',
                 background: 'rgba(255, 255, 255, 0.1)',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
-                color: '#cbd5e1',
+                color: '#ffffff',
                 cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '0.9rem',
+                fontWeight: 600,
+                boxSizing: 'border-box',
+                lineHeight: 1,
               }}
             >
               ← Назад
@@ -349,7 +373,19 @@ export const AddPropellantPage: React.FC<AddPropellantPageProps> = ({
               type="submit"
               disabled={isLoading}
               className="btn-filter-submit-block"
-              style={{ flex: 1, padding: '12px', fontSize: '0.95rem' }}
+              style={{
+                flex: 1,
+                height: '42px',
+                padding: '0 16px',
+                margin: 0,
+                fontSize: '0.9rem',
+                fontWeight: 700,
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxSizing: 'border-box',
+                lineHeight: 1,
+              }}
             >
               {isLoading ? 'Публикация...' : 'Опубликовать рабочее тело ✔'}
             </button>
