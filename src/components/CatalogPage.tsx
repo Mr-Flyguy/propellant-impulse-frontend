@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { PropellantResponseDto } from '../api/generated/PropellantApi';
 import type { FilterState } from '../store/slices/filterSlice';
 import { resolveMediaUrl } from '../api/apiClient';
@@ -26,13 +26,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
   isLoading,
   isMockMode = false,
 }) => {
-  const [expandedId, setExpandedId] = useState<number | null>(null);
-  const defaultImage = '/assets/default_propellant.jpg';
-
-  const toggleExpand = (id: number, e: React.MouseEvent) => {
-    e.stopPropagation();
-    setExpandedId((prev) => (prev === id ? null : id));
-  };
+  const defaultImage = '/img/default_propellant.jpg';
 
   const handleDelete = (id: number, name: string, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -66,7 +60,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
           }}
         >
           <span>&#9888;</span>
-          <span>Отображаются mock-данные (бэкенд не запущен или недоступен)</span>
+          <span>Отображаются mock-данные</span>
         </div>
       )}
 
@@ -171,7 +165,6 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
         <div className="catalog-cards-grid">
           {propellants.map((propellant) => {
             const isCreator = propellant.is_creator === 1;
-            const isExpanded = expandedId === propellant.id;
             const imgSrc = propellant.image_url
               ? resolveMediaUrl(propellant.image_url)
               : defaultImage;
@@ -248,44 +241,6 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
                         {propellant.likes_count ?? 0}
                       </span>
                     </div>
-
-                    {/* Expandable description button */}
-                    {propellant.description && (
-                      <div style={{ marginTop: '6px' }}>
-                        <button
-                          type="button"
-                          onClick={(e) => toggleExpand(propellant.id, e)}
-                          style={{
-                            background: 'none',
-                            border: 'none',
-                            color: '#38bdf8',
-                            fontSize: '0.75rem',
-                            padding: 0,
-                            cursor: 'pointer',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '4px',
-                          }}
-                        >
-                          {isExpanded ? 'Свернуть ▲' : 'Подробнее ▼'}
-                        </button>
-                        {isExpanded && (
-                          <p
-                            style={{
-                              marginTop: '6px',
-                              fontSize: '0.78rem',
-                              color: '#cbd5e1',
-                              lineHeight: '1.4',
-                              background: 'rgba(0, 0, 0, 0.3)',
-                              padding: '6px 8px',
-                              borderRadius: '4px',
-                            }}
-                          >
-                            {propellant.description}
-                          </p>
-                        )}
-                      </div>
-                    )}
                   </div>
                 </div>
               </div>

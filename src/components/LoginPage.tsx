@@ -158,7 +158,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
       </div>
 
       {/* Tabs Switcher */}
-      <div style={{ display: 'flex', gap: '8px', marginBottom: '20px' }}>
+      <div style={{ display: 'flex', gap: '10px', marginBottom: '24px' }}>
         <button
           type="button"
           onClick={() => {
@@ -167,14 +167,21 @@ export const LoginPage: React.FC<LoginPageProps> = ({
           }}
           style={{
             flex: 1,
-            padding: '8px',
+            height: '38px',
             borderRadius: '6px',
-            background: !isRegisterMode ? '#f07d24' : 'rgba(255, 255, 255, 0.08)',
+            background: !isRegisterMode
+              ? 'linear-gradient(90deg, #c93146 0%, #364596 100%)'
+              : 'rgba(15, 23, 42, 0.6)',
+            boxShadow: !isRegisterMode ? '0 4px 14px rgba(201, 49, 70, 0.35)' : 'none',
+            border: !isRegisterMode ? 'none' : '1px solid rgba(255, 255, 255, 0.15)',
             color: '#ffffff',
-            border: 'none',
-            fontWeight: !isRegisterMode ? 600 : 400,
+            fontWeight: 700,
             cursor: 'pointer',
-            fontSize: '0.85rem',
+            fontSize: '13px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'all 0.15s ease',
           }}
         >
           Вход
@@ -187,14 +194,21 @@ export const LoginPage: React.FC<LoginPageProps> = ({
           }}
           style={{
             flex: 1,
-            padding: '8px',
+            height: '38px',
             borderRadius: '6px',
-            background: isRegisterMode ? '#f07d24' : 'rgba(255, 255, 255, 0.08)',
+            background: isRegisterMode
+              ? 'linear-gradient(90deg, #c93146 0%, #364596 100%)'
+              : 'rgba(15, 23, 42, 0.6)',
+            boxShadow: isRegisterMode ? '0 4px 14px rgba(201, 49, 70, 0.35)' : 'none',
+            border: isRegisterMode ? 'none' : '1px solid rgba(255, 255, 255, 0.15)',
             color: '#ffffff',
-            border: 'none',
-            fontWeight: isRegisterMode ? 600 : 400,
+            fontWeight: 700,
             cursor: 'pointer',
-            fontSize: '0.85rem',
+            fontSize: '13px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'all 0.15s ease',
           }}
         >
           Регистрация
@@ -306,13 +320,22 @@ export const LoginPage: React.FC<LoginPageProps> = ({
           type="submit"
           disabled={isLoading}
           className="btn-filter-submit-block"
-          style={{ width: '100%', padding: '12px', fontSize: '0.95rem' }}
+          style={{
+            width: '100%',
+            height: '40px',
+            padding: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '14px',
+            fontWeight: 700,
+          }}
         >
           {isLoading
             ? 'Выполняется запрос...'
             : isRegisterMode
-            ? 'Зарегистрироваться'
-            : 'Войти (Вход)'}
+            ? 'Регистрация'
+            : 'Вход'}
         </button>
       </form>
     </div>

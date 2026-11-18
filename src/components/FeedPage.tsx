@@ -20,13 +20,13 @@ export const FeedPage: React.FC<FeedPageProps> = ({
   isLoading,
 }) => {
   const defaultVideo = '/video/default_exhaust.mp4';
-  const defaultImage = '/assets/default_propellant.jpg';
+  const defaultImage = '/img/default_propellant.jpg';
 
   const rawVideo = propellant?.video_url ? resolveMediaUrl(propellant.video_url) : '';
   const rawImage = propellant?.image_url ? resolveMediaUrl(propellant.image_url) : defaultImage;
 
   const [videoSrc, setVideoSrc] = useState<string>(rawVideo || defaultVideo);
-  const [videoFailed, setVideoFailed] = useState<boolean>(!rawVideo);
+  const [videoFailed, setVideoFailed] = useState<boolean>(false);
 
   useEffect(() => {
     if (rawVideo && rawVideo.trim() !== '') {

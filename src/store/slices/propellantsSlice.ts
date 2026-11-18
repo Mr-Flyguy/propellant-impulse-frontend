@@ -15,7 +15,7 @@ export const MOCK_DTO_ITEMS: PropellantResponseDto[] = INITIAL_MOCK_PROPELLANTS.
   description: m.description,
   short_description: m.description.slice(0, 120),
   status: 'published' as const,
-  image_url: m.imageUrl || '/assets/default_propellant.jpg',
+  image_url: m.imageUrl || '/img/default_propellant.jpg',
   video_url: m.videoUrl || null,
   molar_mass: m.molarMass,
   specific_heat_ratio: m.specificHeatRatio,
